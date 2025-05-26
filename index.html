@@ -8,40 +8,49 @@
   <meta name="keywords" content="Data Analyst, Python, Power BI, SQL, Portfolio, Appu Anand">
   <link rel="icon" href="https://raw.githubusercontent.com/Appu-Anand/appu-anand.github.io/main/assets/Profile.jpg" type="image/png" />
   <style>
+    :root {
+      --primary: #ffffff;
+      --secondary: #cccccc;
+      --bg-dark: #0e0e0e;
+      --bg-light: #1c1c1c;
+      --highlight: #888;
+    }
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
     }
     body {
-      background: #000;
-      color: #ddd;
-      line-height: 1.6;
+      background: var(--bg-dark);
+      color: var(--secondary);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
     header {
-      background: #111;
-      color: #fff;
+      background: var(--bg-light);
+      color: var(--primary);
       padding: 2rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.8);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.6);
     }
-    /* Removed profile photo as requested */
     h1 {
       font-size: 2.5rem;
       letter-spacing: 2px;
     }
     #typing-animation {
       font-weight: 600;
-      font-size: 1.2rem;
-      color: #0d6efd;
+      font-size: 1.1rem;
+      color: var(--highlight);
       margin-top: 0.5rem;
-      min-height: 1.5rem; /* reserve space to prevent jump */
+      min-height: 1.5rem;
       font-family: 'Courier New', Courier, monospace;
     }
     nav {
@@ -49,72 +58,70 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
     nav a {
-      color: #0d6efd;
+      color: var(--primary);
       font-weight: 600;
       text-decoration: none;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #60a5fa;
+      color: var(--highlight);
       text-decoration: underline;
     }
     main {
-      flex: 1 0 auto;
+      flex: 1;
       max-width: 960px;
-      margin: 2rem auto 3rem;
+      margin: 2rem auto;
       padding: 0 1rem;
     }
     section {
       margin-bottom: 3rem;
     }
     h2 {
-      color: #0d6efd;
+      color: var(--primary);
+      border-bottom: 2px solid var(--highlight);
       margin-bottom: 1rem;
-      font-weight: 700;
-      border-bottom: 2px solid #0d6efd;
       padding-bottom: 0.3rem;
+      font-size: 1.8rem;
     }
-    .project {
-      background: #111;
+    .project, .certification {
+      background: var(--bg-light);
       padding: 1.5rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(13,110,253,0.3);
-      margin-bottom: 2.5rem;
-      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
-      color: #ddd;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
     }
-    .project:hover {
+    .project:hover, .certification:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(13,110,253,0.6);
+      box-shadow: 0 8px 30px rgba(255,255,255,0.1);
     }
     .btn {
       display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #0d6efd;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
       margin-top: 1rem;
-      transition: background 0.3s;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary);
+      color: #000;
+      border-radius: 6px;
+      text-decoration: none;
       font-weight: 600;
+      transition: background 0.3s;
     }
     .btn:hover {
-      background: #084cd6;
+      background: var(--secondary);
+      color: #000;
     }
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
-      background: #111;
-      color: #666;
-      flex-shrink: 0;
+      background: var(--bg-light);
+      color: var(--highlight);
     }
     a {
-      color: #60a5fa;
+      color: var(--primary);
     }
     .certification-list {
       display: flex;
@@ -124,64 +131,44 @@
     }
     .certification {
       flex: 1 1 300px;
-      max-width: 350px;
-      transition: all 0.3s ease;
-      background: #111;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(13,110,253,0.3);
-      color: #ddd;
+      max-width: 340px;
     }
-    .certification:hover {
-      background: #161b22;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(13,110,253,0.6);
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 1500;
+      background-color: var(--primary);
+      color: #000;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+      transition: background-color 0.3s;
     }
-    html {
-      scroll-behavior: smooth;
+    #scrollTopBtn:hover {
+      background-color: var(--secondary);
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       nav {
-        gap: 1rem;
+        gap: 0.8rem;
         font-size: 0.9rem;
       }
       h1 {
         font-size: 2rem;
       }
       main {
-        margin: 1.5rem 1rem 2rem;
+        margin: 1.5rem 1rem;
       }
-      .project, .certification {
-        padding: 1rem;
-      }
-    }
-
-    /* Scroll to top button */
-    #scrollTopBtn {
-      display: none; /* Hidden by default */
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      z-index: 1500;
-      border: none;
-      outline: none;
-      background-color: #0d6efd;
-      color: white;
-      cursor: pointer;
-      padding: 12px 16px;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(13,110,253,0.7);
-      transition: background-color 0.3s;
-    }
-    #scrollTopBtn:hover {
-      background-color: #084cd6;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>APPU ANAND</h1>
     <p id="typing-animation"></p>
@@ -197,49 +184,46 @@
   <main>
     <section id="about">
       <h2>About Me</h2>
-      <p>I’m Appu Anand — a data analyst who turns raw data into clear, actionable insight. With experience leading teams and creating impactful dashboards, I blend Python, SQL, and Power BI to drive decisions that matter. Focused, visual, and results-driven.</p>
-      <div style="margin-top: 1rem;"><strong>Skills:</strong> Python, SQL, Power BI, Excel, Tableau, ETL, EDA, Data Visualization</div>
+      <p>I’m Appu Anand — a data analyst who turns raw data into clear, actionable insight. With experience leading teams and creating impactful dashboards, I blend Python, SQL, and Power BI to drive decisions that matter.</p>
+      <p><strong>Skills:</strong> Python, SQL, Power BI, Excel, Tableau, ETL, EDA, Data Visualization</p>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-
       <div class="project">
         <h3>Annotation QA Dashboard</h3>
         <p>A Power BI dashboard to evaluate quality assurance of annotated images in an AI surveillance system. Key metrics include false positive rates, category-wise QA scores, and annotator performance.</p>
-        <a href="https://github.com/Appu-Anand/Annotation-Quality-Analysis-PowerBI" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
+        <a href="https://github.com/Appu-Anand/Annotation-Quality-Analysis-PowerBI" class="btn" target="_blank">View Project</a>
       </div>
-
       <div class="project">
-        <h3>movie-flop-analysis</h3>
-        <p>This project analyzes why certain movies fail at the box office, specifically focusing on high-budget movies that didn’t recover their production costs. Using a dataset of over 5000 movies from TMDB, we explore how factors like budget, IMDb ratings, runtime, and popularity contribute to a movie's financial success or failure.</p>
-        <a href="https://github.com/Appu-Anand/movie-flop-analysis" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
+        <h3>Movie Flop Analysis</h3>
+        <p>This project analyzes why certain movies fail at the box office using TMDB data, exploring budget, ratings, popularity, and more.</p>
+        <a href="https://github.com/Appu-Anand/movie-flop-analysis" class="btn" target="_blank">View Project</a>
       </div>
-
       <div class="project">
-        <h3>Bike_Sales_Analysis</h3>
-        <p>This project presents a detailed analysis of the Indian bike resale market using Power BI. It explores trends, pricing patterns, and insights to help buyers and sellers understand factors influencing resale prices.</p>
-        <a href="https://github.com/Appu-Anand/Bike_Sales_Analysis" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
+        <h3>Bike Sales Analysis</h3>
+        <p>An in-depth Power BI analysis of the Indian bike resale market. Highlights pricing trends and regional insights for buyers and sellers.</p>
+        <a href="https://github.com/Appu-Anand/Bike_Sales_Analysis" class="btn" target="_blank">View Project</a>
       </div>
     </section>
 
     <section id="certifications">
       <h2>Certifications</h2>
       <div class="certification-list">
-        <div class="project certification">
+        <div class="certification">
           <h3>Data Analyst Professional - Tata</h3>
-          <p>Completed comprehensive training in data analysis, visualization, and Python programming.</p>
-          <a href="https://drive.google.com/drive/folders/1aRL87jiBHkIsNMR9TWmYgR2YS9W-h9w7?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+          <p>Comprehensive training in data analysis, visualization, and Python programming.</p>
+          <a href="https://drive.google.com/drive/folders/1aRL87jiBHkIsNMR9TWmYgR2YS9W-h9w7?usp=drive_link" class="btn" target="_blank">View Certificate</a>
         </div>
-        <div class="project certification">
+        <div class="certification">
           <h3>Accenture Data Analyst Simulation</h3>
-          <p>Hands-on project-based simulation covering ETL, SQL, and dashboard creation.</p>
-          <a href="https://drive.google.com/drive/folders/1bntexC-m_AJCfefhxOxSxjG8l2FYHjYi?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+          <p>Hands-on simulation covering ETL, SQL, and dashboard creation.</p>
+          <a href="https://drive.google.com/drive/folders/1bntexC-m_AJCfefhxOxSxjG8l2FYHjYi?usp=drive_link" class="btn" target="_blank">View Certificate</a>
         </div>
-         <div class="project certification">
+        <div class="certification">
           <h3>Data Analytics Essentials</h3>
-          <p>Hands-on Completed comprehensive training in Excel-based data analysis, including data cleaning, statistical functions, PivotTables, and data visualization across the analytics lifecycle.</p>
-          <a href="https://drive.google.com/drive/folders/1bntexC-m_AJCfefhxOxSxjG8l2FYHjYi?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+          <p>Training in Excel-based data cleaning, statistics, PivotTables, and dashboards.</p>
+          <a href="https://drive.google.com/drive/folders/1bntexC-m_AJCfefhxOxSxjG8l2FYHjYi?usp=drive_link" class="btn" target="_blank">View Certificate</a>
         </div>
       </div>
     </section>
@@ -247,14 +231,14 @@
     <section id="resume">
       <h2>Resume</h2>
       <p>You can download my resume below:</p>
-      <a href="https://drive.google.com/file/d/1Z6EI6tR0IMtjigP0WjNoIi24nUkii7CS/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">Download Resume</a>
+      <a href="https://drive.google.com/file/d/1Z6EI6tR0IMtjigP0WjNoIi24nUkii7CS/view?usp=drive_link" class="btn" target="_blank">Download Resume</a>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:appu12anand@gmail.com">appu12anand@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/Appu-Anand" target="_blank" rel="noopener noreferrer">github.com/Appu-Anand</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/appuanand" target="_blank" rel="noopener noreferrer">linkedin.com/in/appuanand</a></p>
+      <p>GitHub: <a href="https://github.com/Appu-Anand" target="_blank">github.com/Appu-Anand</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/appuanand" target="_blank">linkedin.com/in/appuanand</a></p>
     </section>
 
     <section id="additional">
@@ -264,32 +248,20 @@
   </main>
 
   <footer>
-    &copy; 2025 Appu Anand &nbsp;|&nbsp; All Rights Reserved
+    &copy; 2025 Appu Anand | All Rights Reserved
   </footer>
 
   <button id="scrollTopBtn" title="Go to top">&#8679;</button>
 
   <script>
-    // Typing animation
-    const roles = [
-      "Data Analyst",
-      "Python Practitioner",
-      "Power BI Analyst",
-      "Visualization Professional"
-    ];
-
-    const typingSpeed = 100;
-    const erasingSpeed = 50;
-    const delayBetween = 1500;
-
-    let roleIndex = 0;
-    let charIndex = 0;
+    const roles = ["Data Analyst", "Python Practitioner", "Power BI Analyst", "Visualization Professional"];
+    const typingSpeed = 100, erasingSpeed = 50, delayBetween = 1500;
+    let roleIndex = 0, charIndex = 0;
     const typedText = document.getElementById("typing-animation");
 
     function type() {
       if (charIndex < roles[roleIndex].length) {
-        typedText.textContent += roles[roleIndex].charAt(charIndex);
-        charIndex++;
+        typedText.textContent += roles[roleIndex].charAt(charIndex++);
         setTimeout(type, typingSpeed);
       } else {
         setTimeout(erase, delayBetween);
@@ -298,8 +270,7 @@
 
     function erase() {
       if (charIndex > 0) {
-        typedText.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
+        typedText.textContent = roles[roleIndex].substring(0, --charIndex);
         setTimeout(erase, erasingSpeed);
       } else {
         roleIndex = (roleIndex + 1) % roles.length;
@@ -311,19 +282,13 @@
       if (roles.length) setTimeout(type, delayBetween);
     });
 
-    // Scroll to top button logic
     const scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function () {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
+    window.onscroll = () => {
+      scrollBtn.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
     };
-
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    scrollBtn.onclick = () => {
+      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    };
   </script>
 </body>
 </html>
