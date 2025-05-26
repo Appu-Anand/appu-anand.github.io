@@ -2,292 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>APPU ANAND | Data Analyst Portfolio</title>
-  <meta name="description" content="Appu Anand | Data Analyst Portfolio showcasing projects in Power BI, Python, SQL and more.">
-  <meta name="keywords" content="Data Analyst, Python, Power BI, SQL, Portfolio, Appu Anand">
-  <link rel="icon" href="https://raw.githubusercontent.com/Appu-Anand/appu-anand.github.io/main/assets/Profile.jpg" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Animated & Themed</title>
   <style>
     :root {
-      --primary: #ffffff;
-      --secondary: #cccccc;
-      --bg-dark: #0e0e0e;
-      --bg-light: #1c1c1c;
-      --highlight: #888;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      background: var(--bg-dark);
-      color: var(--secondary);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: var(--bg-light);
-      color: var(--primary);
-      padding: 2rem 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.6);
-    }
-    h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-    }
-    #typing-animation {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--highlight);
-      margin-top: 0.5rem;
-      min-height: 1.5rem;
-      font-family: 'Courier New', Courier, monospace;
-    }
-    nav {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
-    nav a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: var(--highlight);
-      text-decoration: underline;
-    }
-    main {
-      flex: 1;
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      color: var(--primary);
-      border-bottom: 2px solid var(--highlight);
-      margin-bottom: 1rem;
-      padding-bottom: 0.3rem;
-      font-size: 1.8rem;
-    }
-    .project, .certification {
-      background: var(--bg-light);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
-    }
-    .project:hover, .certification:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(255,255,255,0.1);
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--primary);
-      color: #000;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: var(--secondary);
-      color: #000;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: var(--bg-light);
-      color: var(--highlight);
-    }
-    a {
-      color: var(--primary);
-    }
-    .certification-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .certification {
-      flex: 1 1 300px;
-      max-width: 340px;
-    }
-    #scrollTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      z-index: 1500;
-      background-color: var(--primary);
-      color: #000;
-      cursor: pointer;
-      padding: 12px 16px;
-      border-radius: 50%;
-      font-size: 18px;
-      border: none;
-      box-shadow: 0 4px 12px rgba(255,255,255,0.2);
-      transition: background-color 0.3s;
-    }
-    #scrollTopBtn:hover {
-      background-color: var(--secondary);
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --accent-color: #4f46e5;
     }
 
-    @media (max-width: 600px) {
-      nav {
-        gap: 0.8rem;
-        font-size: 0.9rem;
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #ffffff;
+      --accent-color: #6366f1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: slideIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
       }
-      h1 {
-        font-size: 2rem;
+      100% {
+        transform: translateY(0);
+        opacity: 1;
       }
-      main {
-        margin: 1.5rem 1rem;
-      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-color);
     }
   </style>
 </head>
-<body>
-
+<body data-theme="light">
   <header>
-    <h1>APPU ANAND</h1>
-    <p id="typing-animation"></p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h2>🌟 My Portfolio</h2>
+    <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
   </header>
 
   <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m Appu Anand — a data analyst who turns raw data into clear, actionable insight. With experience leading teams and creating impactful dashboards, I blend Python, SQL, and Power BI to drive decisions that matter.</p>
-      <p><strong>Skills:</strong> Python, SQL, Power BI, Excel, Tableau, ETL, EDA, Data Visualization</p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Annotation QA Dashboard</h3>
-        <p>A Power BI dashboard to evaluate quality assurance of annotated images in an AI surveillance system. Key metrics include false positive rates, category-wise QA scores, and annotator performance.</p>
-        <a href="https://github.com/Appu-Anand/Annotation-Quality-Analysis-PowerBI" class="btn" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>Movie Flop Analysis</h3>
-        <p>This project analyzes why certain movies fail at the box office using TMDB data, exploring budget, ratings, popularity, and more.</p>
-        <a href="https://github.com/Appu-Anand/movie-flop-analysis" class="btn" target="_blank">View Project</a>
-      </div>
-      <div class="project">
-        <h3>Bike Sales Analysis</h3>
-        <p>An in-depth Power BI analysis of the Indian bike resale market. Highlights pricing trends and regional insights for buyers and sellers.</p>
-        <a href="https://github.com/Appu-Anand/Bike_Sales_Analysis" class="btn" target="_blank">View Project</a>
-      </div>
-    </section>
-
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <div class="certification-list">
-        <div class="certification">
-          <h3>Data Analyst Professional - Tata</h3>
-          <p>Comprehensive training in data analysis, visualization, and Python programming.</p>
-          <a href="https://drive.google.com/drive/folders/1aRL87jiBHkIsNMR9TWmYgR2YS9W-h9w7?usp=drive_link" class="btn" target="_blank">View Certificate</a>
-        </div>
-        <div class="certification">
-          <h3>Accenture Data Analyst Simulation</h3>
-          <p>Hands-on simulation covering ETL, SQL, and dashboard creation.</p>
-          <a href="https://drive.google.com/drive/folders/1bntexC-m_AJCfefhxOxSxjG8l2FYHjYi?usp=drive_link" class="btn" target="_blank">View Certificate</a>
-        </div>
-        <div class="certification">
-          <h3>Data Analytics Essentials</h3>
-          <p>Training in Excel-based data cleaning, statistics, PivotTables, and dashboards.</p>
-          <a href="https://drive.google.com/drive/folders/1bntexC-m_AJCfefhxOxSxjG8l2FYHjYi?usp=drive_link" class="btn" target="_blank">View Certificate</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="resume">
-      <h2>Resume</h2>
-      <p>You can download my resume below:</p>
-      <a href="https://drive.google.com/file/d/1Z6EI6tR0IMtjigP0WjNoIi24nUkii7CS/view?usp=drive_link" class="btn" target="_blank">Download Resume</a>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:appu12anand@gmail.com">appu12anand@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/Appu-Anand" target="_blank">github.com/Appu-Anand</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/appuanand" target="_blank">linkedin.com/in/appuanand</a></p>
-    </section>
-
-    <section id="additional">
-      <h2>More Projects Coming Soon</h2>
-      <p>Stay tuned for more projects on sales analytics, customer churn, NLP, and tourism trends.</p>
-    </section>
+    <h1 id="main-heading">Welcome to My World</h1>
   </main>
 
   <footer>
-    &copy; 2025 Appu Anand | All Rights Reserved
+    © 2025 Your Name. All rights reserved.
   </footer>
 
-  <button id="scrollTopBtn" title="Go to top">&#8679;</button>
-
   <script>
-    const roles = ["Data Analyst", "Python Practitioner", "Power BI Analyst", "Visualization Professional"];
-    const typingSpeed = 100, erasingSpeed = 50, delayBetween = 1500;
-    let roleIndex = 0, charIndex = 0;
-    const typedText = document.getElementById("typing-animation");
+    const body = document.body;
+    const heading = document.getElementById('main-heading');
 
-    function type() {
-      if (charIndex < roles[roleIndex].length) {
-        typedText.textContent += roles[roleIndex].charAt(charIndex++);
-        setTimeout(type, typingSpeed);
-      } else {
-        setTimeout(erase, delayBetween);
-      }
+    function toggleTheme() {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
     }
 
-    function erase() {
-      if (charIndex > 0) {
-        typedText.textContent = roles[roleIndex].substring(0, --charIndex);
-        setTimeout(erase, erasingSpeed);
-      } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(type, typingSpeed);
-      }
-    }
+    // On page load, use saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
 
-    document.addEventListener("DOMContentLoaded", () => {
-      if (roles.length) setTimeout(type, delayBetween);
-    });
-
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = () => {
-      scrollBtn.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
-    };
-    scrollBtn.onclick = () => {
-      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    // Re-trigger animation on reload
+    window.onload = () => {
+      heading.style.opacity = '0';
+      heading.style.animation = 'none';
+      void heading.offsetWidth; // Trigger reflow
+      heading.style.animation = 'slideIn 1s ease-out forwards';
     };
   </script>
 </body>
