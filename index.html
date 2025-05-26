@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Animated & Themed</title>
+  <title>Portfolio</title>
   <style>
     :root {
       --bg-color: #ffffff;
@@ -23,24 +23,26 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
+      background-color: var(--bg-color);
     }
 
     .theme-toggle {
-      cursor: pointer;
-      background: var(--accent-color);
-      color: #fff;
+      background-color: var(--accent-color);
+      color: white;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 8px;
       font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     main {
@@ -53,18 +55,16 @@
 
     h1 {
       font-size: 3rem;
-      animation: slideIn 1s ease-out forwards;
+      margin: 0;
       opacity: 0;
+      transform: translateY(-50px);
+      animation: slideIn 1s forwards;
     }
 
     @keyframes slideIn {
-      0% {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
+      to {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -72,11 +72,10 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: var(--text-color);
     }
   </style>
 </head>
-<body data-theme="light">
+<body>
   <header>
     <h2>🌟 My Portfolio</h2>
     <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
@@ -91,27 +90,23 @@
   </footer>
 
   <script>
-    const body = document.body;
-    const heading = document.getElementById('main-heading');
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme', savedTheme);
 
     function toggleTheme() {
-      const currentTheme = body.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', newTheme);
+      const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     }
 
-    // On page load, use saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    body.setAttribute('data-theme', savedTheme);
-
-    // Re-trigger animation on reload
-    window.onload = () => {
-      heading.style.opacity = '0';
+    // Re-trigger heading animation every time the page loads
+    window.addEventListener("DOMContentLoaded", () => {
+      const heading = document.getElementById('main-heading');
       heading.style.animation = 'none';
-      void heading.offsetWidth; // Trigger reflow
-      heading.style.animation = 'slideIn 1s ease-out forwards';
-    };
+      void heading.offsetWidth; // Force reflow
+      heading.style.animation = 'slideIn 1s forwards';
+    });
   </script>
 </body>
 </html>
