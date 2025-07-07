@@ -1,21 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appu Anand | Data Analyst Portfolio</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Appu Anand | Data Analyst Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
     :root {
-      --primary: #3498db;
-      --primary-dark: #2980b9;
+      --primary: #bfa980;
+      --primary-dark: #9e8968;
       --secondary: #2c3e50;
       --dark: #0a0a0a;
       --darker: #050505;
       --light: #ffffff;
       --gray: #cccccc;
       --dark-blue: #121212;
-      --accent: #4ecca3;
+      --accent: #e0c097;
     }
     
     * {
@@ -391,7 +392,28 @@
       font-size: 0.75rem;
       border: 1px solid rgba(78, 204, 163, 0.3);
     }
-    
+    /* Horizontal layout for sections */
+.horizontal-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+/* Ensure each child item is flexible and responsive */
+.horizontal-flex > * {
+  flex: 1 1 30%;
+  min-width: 280px;
+}
+
+/* Optional: force resume card to fill height */
+.resume-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
     .certification-logo {
       width: 35px;
       height: 35px;
@@ -698,323 +720,142 @@
   </style>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <div class="logo">Appu <span>Anand</span></div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </nav>
-    <div class="mobile-nav" id="mobileNav">
-      <div class="mobile-nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Appu Anand</h1>
-          <h2>Data Analyst | Python • SQL • Power BI • Excel</h2>
-          <p>Transforming complex data into actionable insights with Python, SQL, and Power BI. Specializing in data automation, dashboard creation, and business intelligence solutions.</p>
-          <a href="#contact" class="btn">Get In Touch</a>
-        </div>
-        <img src="https://raw.githubusercontent.com/Appu-Anand/appu-anand.github.io/main/assets/Profile.jpg" alt="Appu Anand" class="hero-image">
-      </div>
-    </section>
-
-    <section id="about" class="container">
+<header>
+<nav class="container">
+<div class="logo">Appu <span>Anand</span></div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#certifications">Certifications</a>
+<a href="#contact">Contact</a>
+</div>
+<button class="mobile-menu-btn" id="mobileMenuBtn">
+<i class="fas fa-bars"></i>
+</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+<div class="mobile-nav-links">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#certifications">Certifications</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container hero-content">
+<div class="hero-text">
+<h1>Appu Anand</h1>
+<h2>Data Analyst | Python • SQL • Power BI • Excel</h2>
+<p>Transforming complex data into actionable insights with Python, SQL, and Power BI. Specializing in data automation, dashboard creation, and business intelligence solutions.</p>
+<a class="btn" href="#contact">Get In Touch</a>
+</div>
+<img alt="Appu Anand" class="hero-image" src="https://raw.githubusercontent.com/Appu-Anand/appu-anand.github.io/main/assets/Profile.jpg"/>
+</div>
+</section>
+<section class="container" id="about">
       <h2 class="section-title">About Me</h2>
-      <div class="about-skills-container">
-        <div class="about-section">
-          <div class="about-text">
-            <p>I'm a data analyst with over two years of experience turning raw data into meaningful insights. Skilled in Python, SQL, Power BI, and Excel, I specialize in data cleaning, automation, and dashboard development.</p>
+      <div class="item-card">
+        <p>I'm a data analyst with over two years of experience turning raw data into meaningful insights. Skilled in Python, SQL, Power BI, and Excel, I specialize in data cleaning, automation, and dashboard development.</p>
             <p>From leading a 10-member analytics team to building real-time reporting tools, I focus on creating efficient workflows and clear, actionable results. I've worked on both industry projects and personal case studies that showcase my ability to solve real-world problems through data.</p>
             <p>Currently, I'm expanding my portfolio and preparing for my next opportunity in data analytics.</p>
-          </div>
-        </div>
-        
-        <div class="skills-section">
-          <h2 class="section-title" style="margin-bottom: 20px; text-align: center;">Technical Skills</h2>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <h3><i class="fab fa-python"></i> Python</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-database"></i> SQL</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-chart-bar"></i> Power BI</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-file-excel"></i> Excel</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-exchange-alt"></i> ETL</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-table"></i> Tableau</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-chart-pie"></i> Data Visualization</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-tasks"></i> Data Cleaning</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-project-diagram"></i> Pandas</h3>
-            </div>
-            
-            <div class="skill-card">
-              <h3><i class="fas fa-chart-line"></i> Data Analysis</h3>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-  <section id="projects" class="container">
-  <h2 class="section-title">Featured Projects</h2>
+    <section class="container" id="skills">
+  <h2 class="section-title">Skills</h2>
   <div class="items-grid">
-
-<!-- Project 1 -->
-<div class="item-card">
-  <h3><i class="fas fa-check-circle"></i> Annotation Quality Analysis</h3>
-  <p>Power BI dashboard analyzing annotation task performance and quality with comprehensive tracking metrics.</p>
-  <ul class="features-list">
-    <li>Track total annotations and error counts</li>
-    <li>Monitor average accuracy percentage</li>
-    <li>Compare performance by annotator</li>
-    <li>Analyze QA pass/fail breakdown</li>
-  </ul>
-  <div class="skills-tags">
-    <span class="skill-tag">Power BI</span>
-    <span class="skill-tag">Power Query</span>
-    <span class="skill-tag">Data Visualization</span>
+    <div class="item-card"><i class="fab fa-python"></i> Python</div>
+    <div class="item-card"><i class="fas fa-database"></i> SQL</div>
+    <div class="item-card"><i class="fas fa-chart-bar"></i> Power BI</div>
+    <div class="item-card"><i class="fas fa-file-excel"></i> Excel</div>
+    <div class="item-card"><i class="fas fa-table"></i> Tableau</div>
+    <div class="item-card"><i class="fas fa-exchange-alt"></i> ETL</div>
+    <div class="item-card"><i class="fas fa-chart-pie"></i> Data Visualization</div>
+    <div class="item-card"><i class="fas fa-broom"></i> Data Cleaning</div>
   </div>
-  <a href="https://github.com/Appu-Anand/Annotation-Quality-Analysis-PowerBI" target="_blank" class="btn">View Project</a>
-</div>
+</section>
 
-<!-- Project 2 -->
-<div class="item-card">
-  <h3><i class="fas fa-motorcycle"></i> Bike Sales Analysis</h3>
-  <p>Comprehensive analysis of Indian bike resale market with interactive Power BI dashboard.</p>
-  <ul class="features-list">
-    <li>Total bikes analyzed and average pricing</li>
-    <li>Mileage and engine capacity metrics</li>
-    <li>Resale price by brand visualization</li>
-    <li>Year vs price analysis with trends</li>
-  </ul>
-  <div class="skills-tags">
-    <span class="skill-tag">Power BI</span>
-    <span class="skill-tag">Python</span>
-    <span class="skill-tag">Market Analysis</span>
-  </div>
-  <a href="https://github.com/Appu-Anand/Bike_Sales_Analysis" target="_blank" class="btn">View Project</a>
-</div>
 
- <!-- Project 3 -->
+   <section class="container" id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="items-grid">
     <div class="item-card">
-      <h3><i class="fas fa-store"></i> QSR Customer Journey Dashboard</h3>
-      <p>Power BI dashboard analyzing customer movement and wait times across in-store order channels using mock data from 3 QSR branches.</p>
-      <ul class="features-list">
-        <li>Tracks key timestamps: entry, order start, payment, pickup, and exit</li>
-        <li>Compares Kiosk, Counter, and Online orders (excludes Drive-Thru)</li>
-        <li>Shows KPIs: Journey Time, Order Prep Time, Pickup Waiting Time</li>
-        <li>Includes store-wise drilldowns and dynamic filters</li>
-      </ul>
-      <div class="skills-tags">
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">DAX</span>
-        <span class="skill-tag">Customer Analytics</span>
-      </div>
-      <a href="https://github.com/Appu-Anand/QSR-Customer-Journey-Dashboard" target="_blank" class="btn">View Project</a>
+      <h3><i class="fas fa-tasks"></i> Annotation Quality Dashboard</h3>
+      <p>Power BI dashboard analyzing annotation performance and quality.</p>
     </div>
-
-<section> 
-
-
-
-    <section id="certifications" class="container">
-      <h2 class="section-title">Certifications</h2>
-      <div class="items-grid">
-        <div class="item-card">
-          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" class="certification-logo" alt="Microsoft"> Career Essentials in Data Analysis</h3>
-          <p>Microsoft and LinkedIn - Issued Jun 2025</p>
-          <div class="skills-tags">
-            <span class="skill-tag">Data Analytics</span>
-            <span class="skill-tag">Data Visualization</span>
-          </div>
-          <span class="badge completed">Completed</span>
-        </div>
-        
-        <div class="item-card">
-          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="certification-logo" alt="IBM"> Data Analysis Using Python</h3>
-          <p>IBM - Issued Jun 2025</p>
-          <div class="skills-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">Data Analysis</span>
-          </div>
-          <span class="badge completed">Completed</span>
-        </div>
-        
-        <div class="item-card">
-          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Forage_logo.svg" class="certification-logo" alt="Forage"> Deloitte Data Analytics Simulation</h3>
-          <p>Forage - Issued Jun 2025</p>
-          <div class="skills-tags">
-            <span class="skill-tag">Tableau</span>
-            <span class="skill-tag">Business Insights</span>
-          </div>
-          <span class="badge completed">Completed</span>
-        </div>
-        
-        <div class="item-card">
-          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" class="certification-logo" alt="Accenture"> Accenture Data Analytics Simulation</h3>
-          <p>Forage - Issued May 2025</p>
-          <div class="skills-tags">
-            <span class="skill-tag">Data Analysis</span>
-            <span class="skill-tag">Visualization</span>
-          </div>
-          <span class="badge completed">Completed</span>
-        </div>
-        
-        <div class="item-card">
-          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" class="certification-logo" alt="LinkedIn"> ChatGPT and Power BI</h3>
-          <p>LinkedIn - Issued May 2025</p>
-          <div class="skills-tags">
-            <span class="skill-tag">AI Integration</span>
-            <span class="skill-tag">Power BI</span>
-          </div>
-          <span class="badge completed">Completed</span>
-        </div>
-        
-        <div class="item-card">
-          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" class="certification-logo" alt="Cisco"> Data Analytics Essentials</h3>
-          <p>Cisco Networking Academy - Issued May 2025</p>
-          <div class="skills-tags">
-            <span class="skill-tag">Data Fundamentals</span>
-            <span class="skill-tag">Analytics</span>
-          </div>
-          <span class="badge completed">Completed</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon-large">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <h3>Email Me</h3>
-          <a href="mailto:appu12anand@gmail.com">appu12anand@gmail.com</a>
-          <p>Typically replies within 24 hours</p>
-        </div>
-        
-        <div class="contact-card">
-          <div class="contact-icon-large">
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-          <h3>LinkedIn</h3>
-          <a href="https://linkedin.com/in/appuanand" target="_blank">linkedin.com/in/appuanand</a>
-          <p>Let's connect professionally</p>
-        </div>
-        
-        <div class="contact-card">
-          <div class="contact-icon-large">
-            <i class="fab fa-github"></i>
-          </div>
-          <h3>GitHub</h3>
-          <a href="https://github.com/Appu-Anand" target="_blank">github.com/Appu-Anand</a>
-          <p>Check out my projects</p>
-        </div>
-        
-        <div class="contact-card">
-          <div class="contact-icon-large">
-            <i class="fas fa-phone"></i>
-          </div>
-          <h3>Call Me</h3>
-          <a href="tel:+918330804690">+91 8330804690</a>
-        </div>
-        
-        <div class="resume-card">
-          <div class="resume-icon">
-            <i class="fas fa-file-pdf"></i>
-          </div>
-          <div class="resume-content">
-            <h3>Download My Resume</h3>
-            <p>Get a comprehensive overview of my skills, experience, and qualifications in PDF format.</p>
-            <a href="https://drive.google.com/file/d/17FMJ6Pz_Toido-l7aeHbo5gZOxgKe1IY/view?usp=sharing" target="_blank" class="download-btn">
-              <i class="fas fa-download"></i> Download Resume
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Appu Anand. All rights reserved.</p>
+    <div class="item-card">
+      <h3><i class="fas fa-motorcycle"></i> Bike Sales Analysis</h3>
+      <p>Power BI dashboard visualizing Indian bike resale trends.</p>
     </div>
-  </footer>
+    <div class="item-card">
+      <h3><i class="fas fa-store"></i> Customer Journey Dashboard</h3>
+      <p>Interactive dashboard on QSR customer behavior using mock data.</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking a link
-    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-      });
-    });
-    
-    // Smooth scrolling for all links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+
+    <section class="container" id="certifications">
+  <h2 class="section-title">Certifications</h2>
+  <div class="items-grid">
+    <div class="item-card">
+      <h3><img class="certification-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft"> Microsoft - Career Essentials in Data Analysis</h3>
+    </div>
+    <div class="item-card">
+      <h3><img class="certification-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM"> IBM - Data Analysis Using Python</h3>
+    </div>
+    <div class="item-card">
+      <h3><img class="certification-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Forage_logo.svg" alt="Deloitte"> Deloitte - Data Analytics Simulation</h3>
+    </div>
+    <div class="item-card">
+      <h3><img class="certification-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt="Accenture"> Accenture - Data Analytics Simulation</h3>
+    </div>
+    <div class="item-card">
+      <h3><img class="certification-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco"> Cisco - Data Analytics Essentials</h3>
+    </div>
+    <div class="item-card">
+      <h3><img class="certification-logo" src="https://cdn.simpleicons.org/tata/0056a0" alt="Tata"> Tata - GenAI-Powered Data Analytics</h3>
+    </div>
+  </div>
+</section>
+
+
+    <section class="container" id="contact">
+  <h2 class="section-title">Let's Connect</h2>
+  <div class="items-grid">
+    <div class="contact-card" title="Send me an email">
+      <div class="contact-icon-large"><i class="fas fa-envelope"></i></div>
+      <h3>Email Me</h3>
+      <a href="mailto:appu12anand@gmail.com">appu12anand@gmail.com</a>
+    </div>
+    <div class="contact-card" title="Visit my LinkedIn profile">
+      <div class="contact-icon-large"><i class="fab fa-linkedin-in"></i></div>
+      <h3>LinkedIn</h3>
+      <a href="https://linkedin.com/in/appuanand" target="_blank">linkedin.com/in/appuanand</a>
+    </div>
+    <div class="contact-card" title="Check out my GitHub repositories">
+      <div class="contact-icon-large"><i class="fab fa-github"></i></div>
+      <h3>GitHub</h3>
+      <a href="https://github.com/Appu-Anand" target="_blank">github.com/Appu-Anand</a>
+    </div>
+    <div class="contact-card" title="Call me directly">
+      <div class="contact-icon-large"><i class="fas fa-phone"></i></div>
+      <h3>Call Me</h3>
+      <a href="tel:+918330804690">+91 8330804690</a>
+    </div>
+    <div class="resume-card" title="View or download my resume">
+      <div class="resume-icon"><i class="fas fa-file-pdf"></i></div>
+      <div class="resume-content">
+        <h3>Download My Resume</h3>
+        <p>PDF with my skills, experience, and qualifications.</p>
+        <a class="download-btn" href="https://drive.google.com/file/d/17FMJ6Pz_Toido-l7aeHbo5gZOxgKe1IY/view?usp=sharing" target="_blank">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
