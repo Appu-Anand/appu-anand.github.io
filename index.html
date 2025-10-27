@@ -1,357 +1,451 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Appu Anand — Data Analyst Portfolio</title>
-<meta name="description" content="Appu Anand — Data Analyst. Transforming raw data into actionable business insights.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Appu Anand — Data Analyst </title>
+  <meta name="description" content="Appu Anand — Data Analyst. Black Edition portfolio showcasing data storytelling, BI, and ML ops.">
 
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tealbrand: '#00ADB5'
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-:root {
-  --bg:#fff; --bg-alt:#f4f4f4; --card:rgba(255,255,255,0.95);
-  --text:#333; --text-light:#555; --accent:#7d7d7d;
-  --btn:#c0c0c0; --btn-hover:#a9a9a9;
-  --link:#000; --link-hover:#555;
-}
-body.dark-mode {
-  --bg:#1a1a1a; --bg-alt:#2a2a2a; --card:rgba(40,40,40,0.95);
-  --text:#f2f2f2; --text-light:#b5b5b5; --accent:#c0c0c0;
-  --btn:#7d7d7d; --btn-hover:#a9a9a9;
-  --link:#fff; --link-hover:#c0c0c0;
-}
-body {font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;scroll-behavior:smooth;transition:0.3s;}
-a {color:var(--link);text-decoration:none;transition:0.3s;}
-a:hover{color:var(--link-hover);}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-.site-header {background: var(--card); backdrop-filter: blur(8px); box-shadow: 0 2px 6px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; padding:10px 20px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;}
-.nav-links {list-style:none; display:flex; flex-wrap:wrap; gap:15px; margin:0; padding:0;}
-.nav-links a {font-weight:500; color:var(--text);}
-.nav-links a.active{color:var(--accent);}
-.nav-links a:hover{color:var(--accent);}
 
-.hero {background: linear-gradient(180deg,var(--bg),var(--bg-alt)); padding:60px 20px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;}
-.hero-copy {flex:1 1 400px; min-width:280px;}
-.hero-copy h1 {margin:0.2em 0; font-size:2.5em;}
-.hero-copy .accent {color:var(--accent);}
-.hero-copy p.lead {color:var(--text-light); max-width:600px;}
-.hero-media {display:flex; justify-content:center; flex:1 1 200px; margin-top:20px;}
-.hero-media .avatar {width:300px; border-radius:25%; max-width:100%; height:auto;}
-
-.typing::after{content:"|"; display:inline-block; margin-left:2px; animation: blink 0.8s infinite;}
-@keyframes blink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
-
-.btn-primary, .btn-ghost, #resume-btn {padding:10px 15px; margin:5px; border-radius:5px; border:none; cursor:pointer; font-weight:500; display:inline-flex; align-items:center; gap:5px; transition:0.3s;}
-.btn-primary {background:var(--btn); color:#fff;}
-.btn-primary:hover{background:var(--btn-hover); transform:scale(1.05);}
-.btn-ghost{border:2px solid var(--btn); background:none; color:var(--text);}
-.btn-ghost:hover{background:var(--bg-alt); transform:scale(1.05);}
-#resume-btn{background:var(--btn); color:#fff;}
-#resume-btn:hover{background:var(--btn-hover); transform:scale(1.05);}
-
-.card {background:var(--card); padding:15px; border-radius:10px; margin:10px 0; transition:all 0.3s; cursor:pointer;}
-.card:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 10px 20px rgba(0,0,0,0.1);}
-.section {padding:40px 20px;}
-.section-title {font-size:1.8em; margin-bottom:20px; text-align:center;}
-.centered {max-width:800px; margin:0 auto; text-align:center;}
-.cards {display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
-
-.project-link, .cert-link, .simulation-link {display:inline-block; margin-top:10px; font-weight:500; transition:0.3s;}
-.project-link i, .cert-link i, .simulation-link i{margin-right:6px;}
-.project-link:hover, .cert-link:hover, .simulation-link:hover{color:var(--accent); transform:scale(1.1);}
-
-.social-links {display:flex; justify-content:center; align-items:center; gap:20px; margin-top:20px;}
-.social-links a {font-size:1.5em; color:var(--text); transition:0.3s;}
-.social-links a:hover{color:var(--accent); transform:scale(1.2); animation: pulse 0.8s infinite;}
-@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
-
-.fade-in {opacity:0; transform:translateY(20px);}
-.fade-in.visible{opacity:1; transform:translateY(0); transition:0.8s ease-out;}
-
-.charts-container {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-.chart-card {flex:1 1 300px; padding:20px; background:var(--card); border-radius:10px; min-width:250px; height:300px;}
-
-.site-footer{background:var(--bg-alt); color:var(--text-light); text-align:center; padding:20px;}
-
-@media (max-width:768px){.hero {flex-direction:column;} .hero-copy, .hero-media {flex:1 1 100%; text-align:center;} .hero-copy p.lead {max-width:100%;} .nav-links {justify-content:center; gap:10px;}}
-@media (max-width:480px){.section {padding:30px 15px;} .section-title {font-size:1.5em;} .btn-primary, .btn-ghost, #resume-btn {padding:8px 12px; font-size:0.9em;} .social-links a{font-size:1.3em;}}
-</style>
+  <style>
+    :root{--bg:#050507;--card:#0b0c10;--muted:#9aa0a6;--accent:var(--teal,#00ADB5);}
+    html,body{height:100%;}
+    body{background:linear-gradient(180deg,#040406 0%, #0a0a0f 100%); color:#e6eef6; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+    a{color:var(--accent);} a:hover{opacity:0.9}
+    .glass{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03);}
+    .shadow-glow{box-shadow:0 6px 30px rgba(0,173,181,0.08); border:1px solid rgba(0,173,181,0.06);}
+    .badge{background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-size:12px}
+    .typing::after{content:'|'; margin-left:6px; animation:blink 0.9s steps(1) infinite}
+    @keyframes blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+    .skill-pill{background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.03);}
+    /* Added style for the new cert cards */
+    .cert-card {
+        background-color: #07070b;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        color: #cbd5e1;
+        transition: background-color 0.2s ease;
+    }
+    .cert-card:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    .cert-link {
+        display: block;
+        font-size: 0.75rem;
+        color: #00ADB5; /* tealbrand */
+        margin-top: 0.25rem;
+        font-weight: 600;
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <a href="#" class="logo">Appu<span>_Anand</span></a>
-  <ul class="nav-links">
-    <li><a href="#about" class="nav-link">About</a></li>
-    <li><a href="#skills" class="nav-link">Skills</a></li>
-    <li><a href="#projects" class="nav-link">Projects</a></li>
-    <li><a href="#certifications" class="nav-link">Certifications</a></li>
-    <li><a href="#forage" class="nav-link">Simulations</a></li>
-    <li><a href="#connect" class="nav-link">Contact</a></li>
-  </ul>
-  <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fa-solid fa-moon"></i></button>
+<header class="sticky top-4 z-50 max-w-6xl mx-auto px-6">
+  <div class="glass flex items-center justify-between gap-4 p-3 rounded-xl backdrop-blur-md">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-lg bg-tealbrand flex items-center justify-center text-black font-bold">A_A</div>
+      <div>
+        <div class="text-sm font-poppins text-white">Appu Anand</div>
+        <div class="text-[11px] text-muted text-[#9aa0a6]">Data Analyst • BI & ML Ops</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-4 text-sm text-[#cbd5e1]">
+      <a href="#about" class="hover:text-tealbrand">About</a>
+      <a href="#skills" class="hover:text-tealbrand">Skills</a>
+      <a href="#projects" class="hover:text-tealbrand">Projects</a>
+      <a href="#certs" class="hover:text-tealbrand">Certs</a>
+      <a href="#contact" class="hover:text-tealbrand">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="assets/Appu_Anand_Data_Analyst_Resume.pdf" download class="badge text-sm">Download CV <i class="fa-solid fa-download ml-2 text-xs"></i></a>
+      </div>
+  </div>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-copy">
-    <p class="eyebrow">Data Analyst | BI Specialist</p>
-    <h1>Hey, I’m <span class="accent">Appu Anand</span></h1>
-    <h2 id="typing-text" class="typing"></h2>
-    <p class="lead">I specialize in <strong>data storytelling</strong>, turning raw data into dashboards, reports, and ML insights that drive <strong>decisions, revenue growth, and risk reduction</strong>.</p>
-    <div>
-      <button class="btn-primary">View My Work</button>
-      <button class="btn-ghost">Contact</button>
-      <a href="assets/Appu_Anand_Data_Analyst_Resume.pdf" download id="resume-btn">
-  <i class="fa-solid fa-download"></i> Download Resume
-</a>
-    </div>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/appu-anand" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/Appu-Anand" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:appu12anand@gmail.com"><i class="fa-regular fa-envelope"></i></a>
-    </div>
-  </div>
-  <div class="hero-media">
-    <img src="assets/Profile.jpg" alt="Appu Anand" class="avatar" />
-  </div>
-</section>
+<main class="max-w-6xl mx-auto px-6 py-10">
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <div class="lg:col-span-2">
+      <p class="text-tealbrand text-sm font-medium">Data & Business Analyst | SQL, Python, Power BI, Excel  </p>
+      <h1 class="mt-3 text-4xl lg:text-5xl font-poppins leading-tight">“The goal is to turn data into information, and information into insight.”</h1>
+      <p id="heroTyping" class="mt-4 text-lg text-[#cbd5e1] typing">From chaos to clarity — I turn raw data into decisions.</p>
 
-<!-- About Section -->
-<section class="section fade-in" id="about">
-  <h2 class="section-title">About Me</h2>
-  <div class="centered">
-    <p>I’m a <strong>Data Analyst</strong> with <strong>2+ years</strong> of experience in retail, QSR, and smart city projects. I lead ML annotation operations, design <strong>fraud detection tools</strong> achieving 92% precision, and build <strong>interactive dashboards</strong> that drive actionable business insights.<p>
-	<p>My toolkit includes <strong>SQL</strong>, <strong>Python</strong>, <strong>Power BI</strong>, and <strong>Excel</strong>, which I leverage for <strong>data wrangling, visualization, and storytelling</strong> to solve complex business problems.</p>
-  </div>
-</section>
+      <div class="mt-6 flex flex-wrap gap-3 items-center">
+        <a href="#projects" class="inline-flex items-center gap-2 px-4 py-2 bg-tealbrand text-black rounded-lg font-medium shadow-glow">View Work</a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 border border-white/6 rounded-lg text-sm">Contact</a>
+        <a href="#about" class="inline-flex items-center gap-2 px-4 py-2 text-sm text-[#9aa0a6]">Read bio</a>
+      </div>
 
-<!-- Skills Section -->
-<section class="section fade-in" id="skills">
-  <h2 class="section-title">Skills</h2>
-  <div class="charts-container">
-    <div class="chart-card">
-      <canvas id="skillsChart"></canvas>
-    </div>
-    <div class="chart-card">
-      <canvas id="impactChart"></canvas>
-    </div>
-  </div>
-</section>
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="p-4 bg-[#07070b] rounded-lg text-center">
+          <div class="text-xs text-[#9aa0a6]">Projects</div>
+          <div class="mt-1 text-xl font-semibold">12+</div>
+        </div>
+        <div class="p-4 bg-[#07070b] rounded-lg text-center">
+          <div class="text-xs text-[#9aa0a6]">Certifications</div>
+          <div class="mt-1 text-xl font-semibold">8</div>
+        </div>
+		<div class="p-4 bg-[#07070b] rounded-lg text-center">
+          <div class="text-xs text-[#9aa0a6]">Simulations</div>
+          <div class="mt-1 text-xl font-semibold">5</div>
+        </div>
+        <div class="p-4 bg-[#07070b] rounded-lg text-center">
+          <div class="text-xs text-[#9aa0a6]">Model Precision</div>
+          <div class="mt-1 text-xl font-semibold">92%</div>
+        </div>
+        <div class="p-4 bg-[#07070b] rounded-lg text-center">
+          <div class="text-xs text-[#9aa0a6]">Reporting Efficiency</div>
+          <div class="mt-1 text-xl font-semibold">40% ↓ manual time</div>
+        </div>
+      </div>
 
-<!-- Projects Section -->
-<section class="section fade-in" id="projects">
-  <h2 class="section-title">Projects & Case Studies</h2>
-  <div class="cards">
-	  <div class="card">
-      <h3>Fraud Detection Explorer</h3>
-      <span class="meta">Python (pandas, seaborn, XGBoost, SMOTE), Streamlit </span>
-      <p>Built fraud detection dashboard with real-time data visualization.</p>
-      <a href="https://github.com/Appu-Anand/Fraud-Detection-Explorer" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
     </div>
-	  <div class="card">
-      <h3>Sales Performance RCA</h3>
-      <span class="meta">Power BI, DAX</span>
-      <p>Performed root cause analysis to improve sales performance tracking.</p>
-      <a href="https://github.com/Appu-Anand/Retail-Sales-Performance-Root-Cause-Dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-    <div class="card">
-      <h3>QSR Customer Journey Dashboard</h3>
-      <span class="meta">Power BI, Excel</span>
-      <p>Analyzed customer behavior & journey in QSR outlets, improving engagement metrics.</p>
-      <a href="https://github.com/Appu-Anand/QSR-Customer-Journey-Dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-    <div class="card">
-      <h3>Annotation Quality Analysis</h3>
-      <span class="meta">Power BI, Smart City ML</span>
-      <p>Implemented quality review for ML annotation, reducing error rate by 15%.</p>
-      <a href="https://github.com/Appu-Anand/Annotation-Quality-Analysis" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-    <div class="card">
-      <h3>Movie Flop Analysis</h3>
-      <span class="meta">Python, Seaborn</span>
-      <p>Predicted potential movie failures using historical data & visualization.</p>
-      <a href="https://github.com/Appu-Anand/Movie-Flop-Analysis" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-    <div class="card">
-      <h3>Bike Sales Analysis</h3>
-      <span class="meta">Excel, Python, Power BI</span>
-      <p>Analyzed sales trends & created dashboards for actionable insights.</p>
-      <a href="https://github.com/Appu-Anand/Bike-Sales-Analysis" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-    <div class="card">
-      <h3>A/B Test – Email Campaign</h3>
-      <span class="meta">Planned</span>
-      <p>Designed email marketing A/B test for engagement & conversion optimization.</p>
-      <a href="#" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-    <div class="card">
-      <h3>Customer Segmentation</h3>
-      <span class="meta">K-Means Clustering</span>
-      <p>Segmented customers for targeted marketing strategies & retention plans.</p>
-      <a href="https://github.com/Appu-Anand/Customer-Segmentation" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
-    </div>
-  </div>
-</section>
 
-<!-- Certifications Section -->
-<section class="section fade-in" id="certifications">
-  <h2 class="section-title">Certifications</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Career Essentials in Data Analysis by Microsoft and LinkedIn</h3>
-      <a href="https://www.linkedin.com/learning/certificates/8f04cc3c22aef070e372c3e2a3dbb722e2d226da0f63b7f7dfd000e155f7c547" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-    <div class="card">
-      <h3>Data Analysis Using Python</h3>
-      <a href="https://www.credly.com/badges/63108a5a-9ebd-4f00-94f9-b95e34332897/linked_in_profile" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-    <div class="card">
-      <h3>Data Visualization using Python</h3>
-      <a href="https://www.credly.com/badges/d7dc4477-d123-4d89-b4a0-ca0e91ebb0c1" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-    <div class="card">
-      <h3>Data Analytics Essentials</h3>
-      <a href="https://www.linkedin.com/in/appuanand/details/certifications/1746986211400/single-media-viewer/?profileId=ACoAAD22Kk8BrCk8GxEDcwVErPF7uRcDJrk9KLI" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-	 <div class="card">
-      <h3>Statistics 101 </h3>
-      <a href="https://www.credly.com/earner/earned/badge/63dfab4d-8bc9-4083-a493-c282a58e90b7" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-	 <div class="card">
-      <h3>SQL and Relational Databases</h3>
-      <a href="#" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-    <div class="card">
-      <h3>Architecting with Google Compute Engine Specialization</h3>
-      <a href="https://www.coursera.org/account/accomplishments/specialization/CW8M2WPENFNX" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-    <div class="card">
-      <h3>ChatGPT and Power BI</h3>
-      <a href="https://www.linkedin.com/learning/certificates/72579453db4bfb9c0d05c9ff68b3b22d917945491eb53bff12830f59bb620fce?trk=share_certificate" target="_blank" class="cert-link"><i class="fas fa-certificate"></i> View Certificate</a>
-    </div>
-  </div>
-</section>
+    <aside id="profileCard" class="bg-[#07070b] rounded-xl p-4 shadow-glow">
+      <img src="assets/Profile.jpg" alt="Appu Anand" class="w-full h-62 object-cover rounded-lg border border-white/5">
+      <div class="mt-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="font-semibold">Appu Anand</div>
+            <div class="text-xs text-[#9aa0a6]">Data Analyst </div>
+          </div>
+          <div class="text-sm text-[#9aa0a6]">2+ yrs</div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">I design dashboards, pipelines, and ML operations that convert data into strategy. I lead annotation quality programs and build fraud-detection tools used in production.</p>
 
-<!-- Forage Simulations -->
-<section class="section fade-in" id="forage">
-  <h2 class="section-title">Simulations</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Quantium – Data Analytics</h3>
-      <span class="meta">Virtual Simulation</span>
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/32A6DqtsbF7LbKdcq/NkaC7knWtjSbi6aYv_32A6DqtsbF7LbKdcq_mxu9SrigaJEmLvgZC_1752828132990_completion_certificate.pdf" target="_blank" class="simulation-link"><i class="fas fa-flask"></i> View Simulation</a>
-    </div>
-    <div class="card">
-      <h3>Tata GenAI Powered Data Analytics</h3>
-      <span class="meta">Virtual Simulation</span>
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_mxu9SrigaJEmLvgZC_1751878470117_completion_certificate.pdf" target="_blank" class="simulation-link"><i class="fas fa-flask"></i> View Simulation</a>
-    </div>
-    <div class="card">
-      <h3>Deloitte – Commercial Insights</h3>
-      <span class="meta">Virtual Job Simulation</span>
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_mxu9SrigaJEmLvgZC_1748769441323_completion_certificate.pdf" target="_blank" class="simulation-link"><i class="fas fa-flask"></i> View Simulation</a>
-    </div>
-    <div class="card">
-      <h3>Tata Visualization</h3>
-      <span class="meta">Virtual Job Simulation</span>
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_mxu9SrigaJEmLvgZC_1746792167024_completion_certificate.pdf" target="_blank" class="simulation-link"><i class="fas fa-flask"></i> View Simulation</a>
-    </div>
-    <div class="card">
-      <h3>Accenture – AI/ML Insights</h3>
-      <span class="meta">Virtual Job Simulation</span>
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/T6kdcdKSTfg2aotxT/hzmoNKtzvAzXsEqx8_T6kdcdKSTfg2aotxT_mxu9SrigaJEmLvgZC_1746433360299_completion_certificate.pdf" target="_blank" class="simulation-link"><i class="fas fa-flask"></i> View Simulation</a>
-    </div>
-  </div>
-</section>
+        <div class="mt-4 flex gap-3">
+          <a href="https://www.linkedin.com/in/appu-anand" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-white/6 text-sm"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/Appu-Anand" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-white/6 text-sm"><i class="fab fa-github"></i> GitHub</a>
+		  <a href="mailto:appu12anand@gmail.com" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-white/6 text-sm"><i class="fa-regular fa-envelope"></i> Gmail</a>
+        </div>
+        </div>
+    </aside>
+  </section>
 
-<!-- Contact Section -->
-<section class="section fade-in" id="connect">
-  <h2 class="section-title">Let’s Work Together</h2>
-  <p class="lead centered">Open to data analyst roles across <strong>product, marketing, operations, and BI</strong>.</p>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/appu-anand" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/Appu-Anand" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="mailto:appu12anand@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-  </div>
-</section>
+  <section id="about" class="mt-12">
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 bg-[#07070b] p-6 rounded-xl glass">
+        <h2 class="text-2xl font-semibold">About</h2>
+        <p class="mt-3 text-[#cbd5e1]">I’m Appu Anand, a Data & Business Analyst with over two years of experience transforming complex datasets into clear, actionable insights that fuel smarter business decisions.
 
-<footer class="site-footer">
-  © 2025 Appu Anand • Data Analyst Portfolio
-</footer>
+        </p> I’ve led analytics initiatives that boosted data accuracy by 20%, automated workflows by 40%, and delivered Power BI dashboards that improved executive decision-making efficiency by 15%.</p>
+
+        </p> My expertise lies in Business Intelligence, Data Automation, and Operational Analytics  blending Power BI, SQL, Python, and Excel to craft data stories that drive strategy, efficiency, and growth.</p>
+        <div class="mt-4 grid sm:grid-cols-2 gap-3 text-sm text-[#9aa0a6]">
+        </div>
+      </div>
+
+      <div class="bg-[#07070b] p-6 rounded-xl glass">
+        <h3 class="text-sm text-[#9aa0a6]">Contact</h3>
+        <div class="mt-2 text-sm text-[#cbd5e1]">Email: <a href="mailto:appu12anand@gmail.com" class="text-tealbrand">appu12anand@gmail.com</a></div>
+        <div class="mt-3 text-sm text-[#cbd5e1]">Open to roles in product, operations, and BI.</div>
+        <div class="mt-4 flex gap-2">
+          <a href="assets/Appu_Anand_Data_Analyst_Resume.pdf" download class="px-3 py-2 bg-white/5 rounded-md text-sm">Download CV</a>
+          <a href="#contact" class="px-3 py-2 border border-white/6 rounded-md text-sm">Hire me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="mt-12">
+    <h2 class="text-2xl font-semibold">Skills</h2>
+    <p class="text-sm text-[#9aa0a6] mt-2">Technical fluency organized for quick scanning — programming, visualization, analytics, platforms skills.</p>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="bg-[#07070b] p-5 rounded-xl glass">
+        <h4 class="text-sm text-[#cbd5e1] font-semibold">Programming & Databases</h4>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-pill px-3 py-1 text-sm text-[#cbd5e1]">Python</span>
+          <span class="skill-pill px-3 py-1 text-sm text-[#cbd5e1]">Pandas</span>
+          <span class="skill-pill px-3 py-1 text-sm text-[#cbd5e1]">NumPy</span>
+          <span class="skill-pill px-3 py-1 text-sm text-[#cbd5e1]">Matplotlib</span>
+          <span class="skill-pill px-3 py-1 text-sm text-[#cbd5e1]">Seaborn</span>
+          <span class="skill-pill px-3 py-1 text-sm text-[#cbd5e1]">SQL</span>
+        </div>
+      </div>
+
+      <div class="bg-[#07070b] p-5 rounded-xl glass">
+        <h4 class="text-sm text-[#cbd5e1] font-semibold">Data Visualization & BI</h4>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-pill px-3 py-1 text-sm">Power BI</span>
+          <span class="skill-pill px-3 py-1 text-sm">Tableau</span>
+          <span class="skill-pill px-3 py-1 text-sm">Excel</span>
+          <span class="skill-pill px-3 py-1 text-sm">DAX</span>
+        </div>
+      </div>
+
+      <div class="bg-[#07070b] p-5 rounded-xl glass">
+        <h4 class="text-sm text-[#cbd5e1] font-semibold">Analytic Tools </h4>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="skill-pill px-3 py-1 text-sm">Jupyter</span>
+          <span class="skill-pill px-3 py-1 text-sm">GitHub</span>
+          <span class="skill-pill px-3 py-1 text-sm">Google Analytics</span>
+          <span class="skill-pill px-3 py-1 text-sm">Azure (Basic)</span>
+          <span class="skill-pill px-3 py-1 text-sm">KPI Tracking</span>
+          <span class="skill-pill px-3 py-1 text-sm">Data Cleaning</span>
+          <span class="skill-pill px-3 py-1 text-sm">Reporting Automation</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects" class="mt-12">
+    <h2 class="text-2xl font-semibold">Projects & Case Studies</h2>
+    <p class="text-sm text-[#9aa0a6] mt-2">Featured work (deep-dive cards) — click for case summaries and links to repos or demos.</p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-6">
+      <article class="bg-[#07070b] p-5 rounded-xl shadow-glow">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-md bg-gradient-to-br from-tealbrand/80 to-tealbrand/40 flex items-center justify-center text-black font-bold">FD</div>
+          <div>
+            <div class="font-semibold">Fraud Detection Explorer</div>
+            <div class="text-xs text-[#9aa0a6]">Python, XGBoost, Streamlit</div>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">Built an ML pipeline and Streamlit ops dashboard; optimized thresholding to reduce false positives while maintaining high recall (92% precision).</p>
+        <div class="mt-4 flex items-center gap-2">
+          <a href="https://github.com/Appu-Anand/Fraud-Detection-Explorer" target="_blank" class="text-sm text-tealbrand">View repo</a>
+        </div>
+      </article>
+
+      <article class="bg-[#07070b] p-5 rounded-xl shadow-glow">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-md bg-gradient-to-br from-tealbrand/80 to-tealbrand/40 flex items-center justify-center text-black font-bold">RCA</div>
+          <div>
+            <div class="font-semibold">Sales Performance RCA</div>
+            <div class="text-xs text-[#9aa0a6]">Power BI, DAX</div>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">Automated weekly RCA pipeline with row-level security and dashboards adopted by regional managers — improved planning speed and accuracy.</p>
+        <div class="mt-4 flex items-center gap-2">
+          <a href="https://github.com/Appu-Anand/Retail-Sales-Performance-Root-Cause-Dashboard" target="_blank" class="text-sm text-tealbrand">View repo</a>
+        </div>
+      </article>
+
+      <article class="bg-[#07070b] p-5 rounded-xl shadow-glow">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-md bg-gradient-to-br from-tealbrand/80 to-tealbrand/40 flex items-center justify-center text-black font-bold">QSR</div>
+          <div>
+            <div class="font-semibold">QSR Customer Journey</div>
+            <div class="text-xs text-[#9aa0a6]">Power BI, Excel</div>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">Behavioral segmentation and funnel analysis leading to targeted experiments that increased engagement metrics during pilots.</p>
+        <div class="mt-4 flex items-center gap-2">
+          <a href="https://github.com/Appu-Anand/QSR-Customer-Journey-Dashboard" target="_blank" class="text-sm text-tealbrand">View repo</a>
+        </div>
+      </article>
+    
+      <article class="bg-[#07070b] p-5 rounded-xl shadow-glow">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-md bg-gradient-to-br from-tealbrand/80 to-tealbrand/40 flex items-center justify-center text-black font-bold">MFA</div>
+          <div>
+            <div class="font-semibold">Movie Flop Analysis</div>
+            <div class="text-xs text-[#9aa0a6]">Power BI, Excel</div>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">Identified key factors and predictive signals contributing to movie box office failure based on pre-release metrics.</p>
+        <div class="mt-4 flex items-center gap-2">
+          <a href="https://github.com/Appu-Anand/Movie-Flop-Analysis" target="_blank" class="text-sm text-tealbrand">View repo</a>
+        </div>
+      </article>
+
+      <article class="bg-[#07070b] p-5 rounded-xl shadow-glow">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-md bg-gradient-to-br from-tealbrand/80 to-tealbrand/40 flex items-center justify-center text-black font-bold">BSA</div>
+          <div>
+            <div class="font-semibold">Bike Sales Analysis</div>
+            <div class="text-xs text-[#9aa0a6]">Power BI, Excel</div>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">Exploratory Data Analysis and Dashboard design to track regional sales performance, inventory, and customer demographics.</p>
+        <div class="mt-4 flex items-center gap-2">
+          <a href="https://github.com/Appu-Anand/Bike-Sales-Analysis" target="_blank" class="text-sm text-tealbrand">View repo</a>
+        </div>
+      </article>
+
+      <article class="bg-[#07070b] p-5 rounded-xl shadow-glow">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-md bg-gradient-to-br from-tealbrand/80 to-tealbrand/40 flex items-center justify-center text-black font-bold">CUS SEG</div>
+          <div>
+            <div class="font-semibold">Customer Segmentation</div>
+            <div class="text-xs text-[#9aa0a6]">Power BI, Excel</div>
+          </div>
+        </div>
+        <p class="mt-3 text-sm text-[#cbd5e1]">RFM analysis used to segment a customer base for targeted marketing campaigns, significantly improving campaign ROI.</p>
+        <div class="mt-4 flex items-center gap-2">
+          <a href="https://github.com/Appu-Anand/Customer-Segmentation" target="_blank" class="text-sm text-tealbrand">View repo</a>
+        </div>
+      </article>
+    </div> 
+    
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="#" class="block bg-[#07070b] p-4 rounded-xl text-sm text-[#cbd5e1]">A/B Email (Planned)</a>
+    </div>
+  </section>
+
+  <section id="certs" class="mt-12">
+    <h2 class="text-2xl font-semibold">Certifications & Simulations</h2>
+
+    <h3 class="text-lg font-semibold text-[#cbd5e1] mt-6">Certifications</h3>
+    <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="https://www.linkedin.com/learning/certificates/8f04cc3c22aef070e372c3e2a3dbb722e2d226da0f63b7f7dfd000e155f7c547" target="_blank" class="cert-card">
+        Career Essentials in Data Analysis by Microsoft & LinkedIn
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="https://www.credly.com/badges/63108a5a-9ebd-4f00-94f9-b95e34332897/linked_in_profile" target="_blank" class="cert-card">
+        Data Analysis Using Python
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="https://www.credly.com/badges/d7dc4477-d123-4d89-b4a0-ca0e91ebb0c1" target="_blank" class="cert-card">
+        Data Visualization using Python
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="https://www.linkedin.com/in/appuanand/details/certifications/1746986211400/single-media-viewer/?profileId=ACoAAD22Kk8BrCk8GxEDcwVErPF7uRcDJrk9KLI" target="_blank" class="cert-card">
+        Data Analytics Essentials
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="https://www.credly.com/earner/earned/badge/63dfab4d-8bc9-4083-a493-c282a58e90b7" target="_blank" class="cert-card">
+        Statistics 101
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="#" target="_blank" class="cert-card">
+        SQL and Relational Databases
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/CW8M2WPENFNX" target="_blank" class="cert-card">
+        Architecting with Google Compute Engine
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+      <a href="https://www.linkedin.com/learning/certificates/72579453db4bfb9c0d05c9ff68b3b22d917945491eb53bff12830f59bb620fce?trk=share_certificate" target="_blank" class="cert-card">
+        ChatGPT and Power BI
+        <span class="cert-link">View Certificate &rarr;</span>
+      </a>
+    </div>
+
+    <h3 class="text-lg font-semibold text-[#cbd5e1] mt-8">Simulations</h3>
+    <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/32A6DqtsbF7LbKdcq/NkaC7knWtjSbi6aYv_32A6DqtsbF7LbKdcq_mxu9SrigaJEmLvgZC_1752828132990_completion_certificate.pdf" target="_blank" class="cert-card">
+        Quantium – Data Analytics
+        <span class="cert-link">View Simulation &rarr;</span>
+      </a>
+      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_mxu9SrigaJEmLvgZC_1751878470117_completion_certificate.pdf" target="_blank" class="cert-card">
+        Tata GenAI Powered Data Analytics
+        <span class="cert-link">View Simulation &rarr;</span>
+      </a>
+      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_mxu9SrigaJEmLvgZC_1748769441323_completion_certificate.pdf" target="_blank" class="cert-card">
+        Deloitte – Commercial Insights
+        <span class="cert-link">View Simulation &rarr;</span>
+      </a>
+      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_mxu9SrigaJEmLvgZC_1746792167024_completion_certificate.pdf" target="_blank" class="cert-card">
+        Tata Visualization
+        <span class="cert-link">View Simulation &rarr;</span>
+      </a>
+      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/T6kdcdKSTfg2aotxT/hzmoNKtzvAzXsEqx8_T6kdcdKSTfg2aotxT_mxu9SrigaJEmLvgZC_1746433360299_completion_certificate.pdf" target="_blank" class="cert-card">
+        Accenture – AI/ML Insights
+        <span class="cert-link">View Simulation &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="contact" class="mt-12 mb-12">
+    <h2 class="text-2xl font-semibold">Contact</h2>
+    <div class="mt-4 grid md:grid-cols-2 gap-6">
+      <div class="bg-[#07070b] p-6 rounded-xl glass">
+        <h4 class="text-sm text-[#9aa0a6]">Send a message</h4>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="mt-4 grid gap-3">
+          <input name="name" placeholder="Your name" class="bg-transparent border border-white/6 rounded-md px-3 py-2 text-sm" required>
+          <input name="email" placeholder="Email" type="email" class="bg-transparent border border-white/6 rounded-md px-3 py-2 text-sm" required>
+          <textarea name="message" rows="5" placeholder="Message" class="bg-transparent border border-white/6 rounded-md px-3 py-2 text-sm" required></textarea>
+          <div class="flex items-center gap-3">
+            <button type="submit" class="px-4 py-2 bg-tealbrand text-black rounded-md font-medium">Send</button>
+            <a href="mailto:appu12anand@gmail.com" class="text-sm text-[#9aa0a6]">Or email directly</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="bg-[#07070b] p-6 rounded-xl glass">
+        <h4 class="text-sm text-[#9aa0a6]">Quick links & social</h4>
+        <ul class="mt-3 text-sm text-[#cbd5e1] space-y-2">
+          <li><a href="https://github.com/Appu-Anand" target="_blank" class="text-tealbrand">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/appu-anand" target="_blank" class="text-tealbrand">LinkedIn</a></li>
+          <li><a href="assets/Appu_Anand_Data_Analyst_Resume.pdf" download class="text-tealbrand">Download CV</a></li>
+        </ul>
+
+        <div class="mt-6">
+          <h5 class="text-sm text-[#9aa0a6]">Availability</h5>
+          <div class="mt-2 text-sm text-[#cbd5e1]">Open to full-time roles and contract opportunities — product, marketing, operations, BI.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-12 text-center text-sm text-[#9aa0a6]">© 2025 Appu Anand • Data Analyst</footer>
+</main>
 
 <script>
-// Smooth scroll highlight
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', ()=> {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop-100;
-    if(pageYOffset >= sectionTop){current = section.getAttribute('id');}
-  });
-  navLinks.forEach(link => {link.classList.remove('active'); if(link.getAttribute('href') === '#'+current){link.classList.add('active');}});
-});
+  // Typing effect
+  const typingEl = document.getElementById('heroTyping');
+  const roles = ['Data storyteller','SQL-first analyst','Problem solver','BI & ML operations'];
+  let ri=0, ci=0, del=false;
+  function typeLoop(){
+    const r = roles[ri];
+    typingEl.textContent = r.slice(0, ci);
+    if(!del){ if(ci < r.length) ci++; else { del=true; setTimeout(typeLoop,900); return; } }
+    else{ if(ci>0) ci--; else { del=false; ri=(ri+1)%roles.length; } }
+    setTimeout(typeLoop, del?60:100);
+  }
+  setTimeout(typeLoop,500);
 
-// Typing effect
-const typingElement = document.getElementById("typing-text");
-const roles = ["Data Analyst", "Storyteller", "SQL Enthusiast", "Problem Solver"];
-let roleIndex = 0, charIndex = 0, isDeleting = false;
-function typeEffect() {
-  const currentRole = roles[roleIndex];
-  typingElement.textContent = currentRole.substring(0, charIndex);
-  if(!isDeleting && charIndex < currentRole.length){ charIndex++; setTimeout(typeEffect,120);}
-  else if(isDeleting && charIndex>0){ charIndex--; setTimeout(typeEffect,60);}
-  else{ if(!isDeleting){ isDeleting=true; setTimeout(typeEffect,1000);} 
-        else{ isDeleting=false; roleIndex=(roleIndex+1)%roles.length; setTimeout(typeEffect,200);} }
-}
-document.addEventListener("DOMContentLoaded", typeEffect);
+  // Small impact chart
+  const profileCard = document.getElementById('profileCard'); // Changed selector to ID for robustness
+  if (profileCard) {
+    const canvas = document.createElement('canvas');
+    canvas.height = 120;
+    canvas.classList.add('mt-4');
+    profileCard.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    new Chart(ctx, {
+      type:'doughnut',
+      data:{labels:['Fraud','Sales','QSR','Annotation'], datasets:[{data:[32,28,20,20], backgroundColor:['#00ADB5','#007F8A','#005f66','#003f43']} ]},
+      options:{
+        plugins:{
+          legend:{display:false},
+          tooltip: {
+            backgroundColor: 'rgba(11, 12, 16, 0.8)',
+            titleColor: '#e6eef6',
+            bodyColor: '#e6eef6'
+          }
+        }
+      }
+    });
+  }
 
-// Fade-in scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions={threshold:0.2, rootMargin:"0px 0px -50px 0px"};
-const appearOnScroll = new IntersectionObserver((entries,observer)=>{
-  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }});
-}, appearOptions);
-faders.forEach(fader=>appearOnScroll.observe(fader));
-
-// Theme toggle
-const themeToggle=document.getElementById('theme-toggle');
-themeToggle.addEventListener('click',()=>{document.body.classList.toggle('dark-mode'); updateChartsColors();});
-
-// Charts (Skills & Impact)
-const skillsChart = new Chart(document.getElementById('skillsChart'), {
-  type:'radar',
-  data:{labels:['SQL','Python','Power BI','Excel','Pandas','Matplotlib','Seaborn','Plotly','Elasticsearch','ML'],
-  datasets:[{label:'Skill Level (%)', data:[90,85,80,85,80,75,75,70,65,80],backgroundColor:'rgba(192,192,192,0.2)',borderColor:'rgba(192,192,192,1)',pointBackgroundColor:'rgba(192,192,192,1)',borderWidth:2}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{tooltip:{enabled:true,callbacks:{label:ctx=>ctx.dataset.data[ctx.dataIndex]+"%"}}},scales:{r:{angleLines:{color:'#888'},grid:{color:'#ccc'},pointLabels:{color:getComputedStyle(document.body).getPropertyValue('--text')},min:0,max:100}},plugins:{legend:{labels:{color:getComputedStyle(document.body).getPropertyValue('--text')}}}}
-});
-const impactChart = new Chart(document.getElementById('impactChart'), {
-  type:'bar',
-  data:{labels:['QSR Dashboard','Fraud Detection','A/B Email','Customer Segmentation','Movie Analysis','Bike Sales','Annotation QA','Sales RCA'],
-  datasets:[{label:'Impact (%)', data:[55,92,72,80,60,88,60,95], backgroundColor:'rgba(192,192,192,0.7)', borderColor:'rgba(192,192,192,1)', borderWidth:1}]},
-  options:{responsive:true, maintainAspectRatio:false, plugins:{tooltip:{enabled:true,callbacks:{label:ctx=>ctx.dataset.data[ctx.dataIndex]+"% Impact"}}}, scales:{x:{ticks:{color:getComputedStyle(document.body).getPropertyValue('--text')},grid:{color:'#ccc'}},y:{ticks:{color:getComputedStyle(document.body).getPropertyValue('--text')},grid:{color:'#ccc'},beginAtZero:true,max:100}},plugins:{legend:{labels:{color:getComputedStyle(document.body).getPropertyValue('--text')}}}}
-});
-function updateChartsColors(){
-  skillsChart.options.scales.r.pointLabels.color=getComputedStyle(document.body).getPropertyValue('--text');
-  skillsChart.options.plugins.legend.labels.color=getComputedStyle(document.body).getPropertyValue('--text');
-  skillsChart.update();
-  impactChart.options.plugins.legend.labels.color=getComputedStyle(document.body).getPropertyValue('--text');
-  impactChart.options.scales.x.ticks.color=getComputedStyle(document.body).getPropertyValue('--text');
-  impactChart.options.scales.y.ticks.color=getComputedStyle(document.body).getPropertyValue('--text');
-  impactChart.update();
-}
+  // Removed the contrast button event listener
 </script>
 
 </body>
 </html>
-
-
-
-
