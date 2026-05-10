@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typewriterEl) {
         const roles = [
             'Data Analyst',
-            'Business Strategist',
             'BI Developer',
-            'Python Developer',
-            'Insight Engineer'
+            'Business Strategist',
+            'Analytics Engineer',
+            'Insight Creator'
         ];
         let roleIndex = 0;
         let charIndex = 0;
@@ -182,15 +182,38 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // Validate form
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+
             // Visual loading state
             submitBtn.disabled = true;
             submitBtn.querySelector('span').textContent = 'Sending...';
 
-            // Simulate send (replace with real fetch/FormData if backend available)
+            // Create FormData object for form submission
+            const formData = new FormData(form);
+
+            // Simulate send - In production, replace with actual API call
             setTimeout(() => {
                 submitBtn.style.display = 'none';
                 formSuccess.classList.add('show');
                 form.reset();
+
+                // Log form data (for testing - remove in production)
+                console.log({
+                    name,
+                    email,
+                    subject,
+                    message,
+                    timestamp: new Date().toISOString()
+                });
 
                 // Re-enable after 5s
                 setTimeout(() => {
@@ -216,5 +239,12 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = '';
         });
     });
+
+    // --- Trigger animations on page load ---
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in-up').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+        });
+    }, 100);
 
 });
