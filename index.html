@@ -679,7 +679,6 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
     </div>
     <div class="exhibits reveal">
 
-<<<<<<< HEAD
       <div class="exhibit">
         <div class="exhibit-tag"><img loading="lazy" decoding="async" src="assets/projects/retail sales.jpg" alt="Project A"></div>
         <div class="exhibit-body">
@@ -687,22 +686,6 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
           <div class="exhibit-tools">Power BI · Excel · DAX</div>
           <p class="exhibit-desc">Integrated revenue, profit, discount, and delivery data to isolate root causes of declining profitability. Found that high discounting (21%+) in the Technology category and delayed deliveries drove a South-region profit drop after July 2024.</p>
           <a href="https://github.com/Appu-Anand/Retail-Sales-Performance-Root-Cause-Dashboard" target="_blank" rel="noopener" class="exhibit-link">View on GitHub <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-=======
-      <article class="pcard feat reveal">
-        <img src="assets/projects/sales-dashboard.jpg" alt="Retail Sales RCA Dashboard" class="pcard-img">
-        <div class="pcard-body">
-          <div class="pcard-feat-tag">★ Featured</div>
-          <h3 class="pcard-title">Retail Sales Root Cause Analysis</h3>
-          <div class="tech-tags">
-            <span class="tech r">Power BI</span>
-            <span class="tech r">DAX</span>
-            <span class="tech">Excel</span>
-          </div>
-          <p class="pcard-desc">Multi-layered diagnostic dashboard tracking revenue velocity, margin compression, and discount impact across retail regions. Advanced DAX measures isolate root causes of profit decline — turning complex data into clear business narratives.</p>
-          <a href="https://github.com/Appu-Anand/Retail-Sales-Performance-Root-Cause-Dashboard" target="_blank" rel="noopener" class="pcard-link">
-            View on GitHub
-            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
         </div>
       </div>
 
@@ -951,19 +934,19 @@ const queries = [
     rows: ["current_role: MIS Executive", "company: Nippon Motor Corporation Pvt. Ltd."]
   },
   {
-    sql: "SELECT metric, value FROM nippon_reports/nWHERE role = 'MIS Executive';",
+    sql: "SELECT metric, value FROM nippon_reports\nWHERE role = 'MIS Executive';",
     rows: ["enquiry_to_order_conversion: 38%", "registration_pendency: 58 → 16 cases"]
   },
   {
-    sql: "SELECT achievement, value FROM cogniphi_technologies/nWHERE role = 'Junior Lead – Data Analysis';",
+    sql: "SELECT achievement, value FROM cogniphi_technologies\nWHERE role = 'Junior Lead – Data Analysis';",
     rows: ["manual_effort_reduced: 35%", "annotation_errors_reduced: 20%", "team_size_led: 10"]
   },
   {
-    sql: "SELECT tool FROM toolkit/nORDER BY proficiency DESC LIMIT 5;",
+    sql: "SELECT tool FROM toolkit\nORDER BY proficiency DESC LIMIT 5;",
     rows: ["Power BI", "SQL", "Python (Pandas)", "DAX", "Advanced Excel"]
   },
   {
-    sql: "SELECT status FROM appu_anand/nWHERE date = CURRENT_DATE;",
+    sql: "SELECT status FROM appu_anand\nWHERE date = CURRENT_DATE;",
     rows: ["status: Open to Data Analyst / BI Analyst / MIS Analyst roles"]
   }
 ];
@@ -991,7 +974,7 @@ function typeQuery(idx){
     }
   }
   function showResults(){
-    let out = '<span class="term-prompt">sql&gt; </span><span class="term-query">' + sql.replace(//n/g,'<br>') + '</span><br><br>';
+    let out = '<span class="term-prompt">sql&gt; </span><span class="term-query">' + sql.replace(/\n/g,'<br>') + '</span><br><br>';
     out += '<span class="term-comment">-- ' + q.rows.length + ' row' + (q.rows.length>1?'s':'') + ' returned</span><br>';
     q.rows.forEach(r => { out += '<span class="term-result">' + r + '</span><br>'; });
     out += '<br><span class="term-prompt">sql&gt; </span><span class="term-blink">_</span>';
