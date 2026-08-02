@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-P[ORTFOLIO CODE
+PORTFOLIO CODE
 =======
 # Appu Anand — Data Analyst Portfolio
 
