@@ -501,7 +501,7 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
             <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
             View Exhibits
           </a>
-          <a href="assets\Appu_Anand.pdf" download class="btn btn-o">
+          <a href="assets/Appu_Anand.pdf" download class="btn btn-o">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Resume
           </a>
@@ -681,7 +681,7 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
 
 <<<<<<< HEAD
       <div class="exhibit">
-        <div class="exhibit-tag"><img loading="lazy" decoding="async" src="assets\projects\retail sales.jpg" alt="Project A"></div>
+        <div class="exhibit-tag"><img loading="lazy" decoding="async" src="assets/projects/retail sales.jpg" alt="Project A"></div>
         <div class="exhibit-body">
           <div class="exhibit-title">Retail Sales Root Cause Dashboard</div>
           <div class="exhibit-tools">Power BI · Excel · DAX</div>
@@ -703,7 +703,6 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
             View on GitHub
             <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
->>>>>>> aa5de0634e600a9bf65ff88301ee0084dabb803f
         </div>
       </div>
 
@@ -807,19 +806,19 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
     </div>
     <div class="certs-grid reveal">
       <div class="cert-card">
-        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets\certifications\IBM Data Analysis Using Python.png" alt="IBM Data Analysis Using Python certificate"></div>
+        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets/certifications/IBM Data Analysis Using Python.png" alt="IBM Data Analysis Using Python certificate"></div>
         <div class="cert-issuer">IBM</div><div class="cert-name">Data Analysis Using Python</div>
       </div>
       <div class="cert-card">
-        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets\certifications\IBM Data Visualization Using Python.png" alt="IBM Data Visualization Using Python certificate"></div>
+        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets/certifications/IBM Data Visualization Using Python.png" alt="IBM Data Visualization Using Python certificate"></div>
         <div class="cert-issuer">IBM</div><div class="cert-name">Data Visualization Using Python</div>
       </div>
       <div class="cert-card">
-        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets\certifications\CISCO Data Analytics Essentials.png" alt="Cisco Data Analytics Essentials certificate"></div>
+        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets/certifications/CISCO Data Analytics Essentials.png" alt="Cisco Data Analytics Essentials certificate"></div>
         <div class="cert-issuer">Cisco</div><div class="cert-name">Data Analytics Essentials</div>
       </div>
       <div class="cert-card">
-       <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets\certifications\Career Essentials in Data Analysis by Microsoft and Linkedin.png" alt="Career Essentials in Data Analysis by Microsoft and Linkedin"></div>
+       <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets/certifications/Career Essentials in Data Analysis by Microsoft and Linkedin.png" alt="Career Essentials in Data Analysis by Microsoft and Linkedin"></div>
         <div class="cert-issuer">Microsoft and Linkedin</div><div class="cert-name">Career Essentials in Data Analysis by Microsoft and Linkedin</div>
       </div>
       <div class="cert-card">
@@ -839,7 +838,7 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
         <div class="cert-issuer">UAE Initiative</div><div class="cert-name">1 Million Prompters</div>
       </div>
       <div class="cert-card">
-        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets\certifications\amrita-mba.png" alt="Amrita Vishwa Vidyapeetham MBA certificate"></div>
+        <div class="cert-thumb"><img loading="lazy" decoding="async" src="assets/certifications/amrita-mba.png" alt="Amrita Vishwa Vidyapeetham MBA certificate"></div>
         <div class="cert-issuer">Amrita Vishwa Vidyapeetham</div><div class="cert-name">MBA, Business Analytics (Ongoing)</div>
       </div>
     </div>
@@ -952,19 +951,19 @@ const queries = [
     rows: ["current_role: MIS Executive", "company: Nippon Motor Corporation Pvt. Ltd."]
   },
   {
-    sql: "SELECT metric, value FROM nippon_reports\nWHERE role = 'MIS Executive';",
+    sql: "SELECT metric, value FROM nippon_reports/nWHERE role = 'MIS Executive';",
     rows: ["enquiry_to_order_conversion: 38%", "registration_pendency: 58 → 16 cases"]
   },
   {
-    sql: "SELECT achievement, value FROM cogniphi_technologies\nWHERE role = 'Junior Lead – Data Analysis';",
+    sql: "SELECT achievement, value FROM cogniphi_technologies/nWHERE role = 'Junior Lead – Data Analysis';",
     rows: ["manual_effort_reduced: 35%", "annotation_errors_reduced: 20%", "team_size_led: 10"]
   },
   {
-    sql: "SELECT tool FROM toolkit\nORDER BY proficiency DESC LIMIT 5;",
+    sql: "SELECT tool FROM toolkit/nORDER BY proficiency DESC LIMIT 5;",
     rows: ["Power BI", "SQL", "Python (Pandas)", "DAX", "Advanced Excel"]
   },
   {
-    sql: "SELECT status FROM appu_anand\nWHERE date = CURRENT_DATE;",
+    sql: "SELECT status FROM appu_anand/nWHERE date = CURRENT_DATE;",
     rows: ["status: Open to Data Analyst / BI Analyst / MIS Analyst roles"]
   }
 ];
@@ -992,7 +991,7 @@ function typeQuery(idx){
     }
   }
   function showResults(){
-    let out = '<span class="term-prompt">sql&gt; </span><span class="term-query">' + sql.replace(/\n/g,'<br>') + '</span><br><br>';
+    let out = '<span class="term-prompt">sql&gt; </span><span class="term-query">' + sql.replace(//n/g,'<br>') + '</span><br><br>';
     out += '<span class="term-comment">-- ' + q.rows.length + ' row' + (q.rows.length>1?'s':'') + ' returned</span><br>';
     q.rows.forEach(r => { out += '<span class="term-result">' + r + '</span><br>'; });
     out += '<br><span class="term-prompt">sql&gt; </span><span class="term-blink">_</span>';
