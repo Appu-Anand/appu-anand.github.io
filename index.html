@@ -202,7 +202,7 @@ nav.stuck{
 }
 
 .kpi-card{
-  position:absolute; left:-36px; bottom:34px; z-index:4;
+  position:absolute; left:-36px; bottom:34px; z-index:2;
   background:var(--bg3); border:1px solid var(--line-dark2); border-radius:4px;
   padding:16px 20px; display:flex; gap:22px;
   box-shadow:0 20px 50px rgba(0,0,0,.35);
@@ -700,7 +700,7 @@ footer{border-top:1px solid var(--line-dark); padding:30px 0; background:var(--b
       </div>
 
       <div class="exhibit">
-        <div class="exhibit-tag"><img loading="lazy" decoding="async" src="assets/projects/QSR%20dashboard_preview.png" alt="Project C"></div>
+        <div class="exhibit-tag"><img loading="lazy" decoding="async" src="assets/projects/QSR dashboard_preview.png" alt="Project C"></div>
         <div class="exhibit-body">
           <div class="exhibit-title">Fraud Detection Explorer</div>
           <div class="exhibit-tools">XGBoost · SMOTE · SHAP · Streamlit</div>
@@ -910,42 +910,16 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
 document.getElementById('cf').addEventListener('submit', function(e){
   e.preventDefault();
-  const form = this;
   const btn = document.getElementById('fsub');
-  const fok = document.getElementById('fok');
-  const name = document.getElementById('fn').value.trim();
-  const email = document.getElementById('fe').value.trim();
-  const message = document.getElementById('fm').value.trim();
-
   btn.textContent = 'Sending...'; btn.disabled = true;
-
-  fetch('https://formsubmit.co/ajax/appu12anand@gmail.com', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      message: message,
-      _subject: 'New portfolio contact from ' + name
-    })
-  })
-  .then(res => { if (!res.ok) throw new Error('Request failed'); return res.json(); })
-  .then(() => {
-    fok.textContent = "✓ Message sent. I'll get back to you soon.";
-    fok.style.display = 'block';
-    btn.style.display = 'none'; form.reset();
+  setTimeout(() => {
+    document.getElementById('fok').style.display = 'block';
+    btn.style.display = 'none'; this.reset();
     setTimeout(() => {
-      fok.style.display = 'none';
+      document.getElementById('fok').style.display = 'none';
       btn.style.display = ''; btn.textContent = 'Send Message'; btn.disabled = false;
     }, 5000);
-  })
-  .catch(() => {
-    // Fallback: open the user's email client pre-filled, so the message is never lost
-    const subject = encodeURIComponent('Portfolio contact from ' + (name || 'website visitor'));
-    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-    window.location.href = `mailto:appu12anand@gmail.com?subject=${subject}&body=${body}`;
-    btn.textContent = 'Send Message'; btn.disabled = false;
-  });
+  }, 1000);
 });
 
 document.getElementById('btt').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
